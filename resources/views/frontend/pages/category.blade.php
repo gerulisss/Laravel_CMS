@@ -1,18 +1,6 @@
-{{-- Kategorija - {{$category->name}} --}}
-{{-- @foreach ($subcategories as $subcategory) --}}
- {{-- @forelse ($subcategories as $subcategory)
- <a href="{{ url($subcategory->category->slug.'/'.$subcategory->slug) }}">
- <h4>{{ $subcategory->name }}</h4>
- </a>
- @empty
- <br>
-Nėra Sub-Kategorijų
-@endforelse --}}
-{{-- @endforeach --}}
 @extends('layouts.frontend' , ['title' => "{$category->name}"])
 @section('content')
 <div class="container">
-    <!--Section: Content-->
     <br>
     <section class="text-center">
       <h4 class="mb-5"><strong>{{$category->name}}</strong></h4>
@@ -35,6 +23,5 @@ Nėra Sub-Kategorijų
         @endforeach
       </div>
     </section>
-    <!--Section: Content-->
   </div>
   @endsection
