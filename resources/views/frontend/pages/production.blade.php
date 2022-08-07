@@ -1,10 +1,7 @@
 @extends('layouts.frontend' , ['title' => __('Production')])
-{{--@section('title', 'Production page')--}}
 @section('content')
-     {{-- <!-- Start your project here-->
      <div class="container">
       </div>
-      <!-- End your project here-->
       <section>
         <div class="container">
           <div class="row">
@@ -16,7 +13,7 @@
                 @endforeach
           </div>
         </div>
-      </section> --}}
+      </section>
       <br>
       <div class="container">
         <!--Section: Content-->
@@ -40,10 +37,7 @@
             </div>
             @endforeach
           </div>
-{{--            {!! $categories->links() !!}--}}
         </section>
-        <!--Section: Content-->
       </div>
 
-  <!-- Main layout -->
         @endsection
