@@ -14,45 +14,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/', function () {
-//    return redirect(app()->getLocale());
-//});
-
-//Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}'],  'middleware' => 'setlocale'],  function () {
-//    Route::get('/', function () {
-//        return redirect(app()->getLocale());
-//        return view('frontend.pages.index');
-//    });
-//    Route::get('/production', [\App\Http\Controllers\Frontend\ProductionController::class, 'index'])->name('production.index.page');
-//    Route::get('/produkcija', [\App\Http\Controllers\Frontend\ProductionController::class, 'index'])->name('production.index.page_lt');
-//    Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'index'])->name('home-locale');
-//    Route::get('/{category_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'categoryview'])->name('category-view');
-//    Route::get('{category_url}/{subcategory_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'subcategoryview']);
-//    Route::get('{category_url}/{subcategory_url}/{product_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'productview']);
-//});
-//Route::get('/', function () {
-//    return redirect()->route('home-locale', app()->getLocale());
-//})->name('home-locale');
-//
-//Route::group(['prefix' => '{locale}', 'where' => ['locale' => '[a-zA-Z]{2}']], function () {
-//    Route::get('/', [\App\Http\Controllers\Frontend\IndexController::class, 'index'])->name('home-locale');
-//});
-//Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect'])->group(function () {
-//    Route::get(LaravelLocalization::transRoute('routes.about'),  function () {
-//        return view('frontend.pages.production');
-//    });
-//    Route::get(LaravelLocalization::transRoute('routes.production'), [\App\Http\Controllers\Frontend\ProductionController::class, 'index']);
-
-//Route::get('/produkcija', [\App\Http\Controllers\Frontend\ProductionController::class, 'index'])->name('production.index.page');
-
-//Route::get('pdf/preview', [\App\Http\Controllers\Admin\Product\ProductController::class, 'pdfIndex']);
-//Route::get('/download', [\App\Http\Controllers\Admin\Product\ProductController::class, 'generatePDF']);
 
 Route::group(['prefix' => 'admin'], function() {
     Auth::routes(['register' => false]);
 });
 
-//Route::group(['middleware' => ['auth' ,'AdminPanelAccess'], 'prefix' => 'admin'], function() {
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function() {
 
     Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin');
@@ -82,14 +48,4 @@ Route::get('/production', [\App\Http\Controllers\Frontend\ProductionController::
 Route::get('/{category_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'categoryview'])->name('category-view');
 Route::get('{category_url}/{subcategory_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'subcategoryview']);
 Route::get('{category_url}/{subcategory_url}/{product_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'productview']);
-//Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect'])->group(function () {
-//    Route::get('/{category_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'categoryview']);
-//    Route::get('{category_url}/{subcategory_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'subcategoryview']);
-//    Route::get('{category_url}/{subcategory_url}/{product_url}', [\App\Http\Controllers\Frontend\UrlController::class, 'productview']);
-//});
 
-//Route::get('language/{locale}', function ($locale) {
-//    app()->setLocale($locale);
-//    session()->put('locale', $locale);
-//    return redirect()->back();
-//});
